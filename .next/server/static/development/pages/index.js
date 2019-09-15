@@ -1410,9 +1410,22 @@ const Index = ({
 Index.getInitialProps = async ({
   req
 }) => {
+  const getHost = path => {
+    if (!req) return path;
+    const {
+      host
+    } = req.headers;
+
+    if (host.startsWith('localhost')) {
+      return `http://${host}${path}`;
+    }
+
+    return `https://${host}${path}`;
+  };
+
   const quotes = [Object(_babel_runtime_corejs2_helpers_esm_objectSpread__WEBPACK_IMPORTED_MODULE_0__["default"])({}, (await Object(_lib_quotes_api__WEBPACK_IMPORTED_MODULE_7__["getQuote"])('https://api.kanye.rest')), {
     id: 'fetch'
-  }), Object(_babel_runtime_corejs2_helpers_esm_objectSpread__WEBPACK_IMPORTED_MODULE_0__["default"])({}, (await Object(_lib_quotes_api__WEBPACK_IMPORTED_MODULE_7__["getQuote"])('http://localhost:3000/api/quote')), {
+  }), Object(_babel_runtime_corejs2_helpers_esm_objectSpread__WEBPACK_IMPORTED_MODULE_0__["default"])({}, (await Object(_lib_quotes_api__WEBPACK_IMPORTED_MODULE_7__["getQuote"])(getHost('api/route'))), {
     id: 'api-routes'
   })];
   return {

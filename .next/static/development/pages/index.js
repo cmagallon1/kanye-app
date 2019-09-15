@@ -13176,18 +13176,30 @@ function () {
   var _ref4 = Object(_babel_runtime_corejs2_helpers_esm_asyncToGenerator__WEBPACK_IMPORTED_MODULE_2__["default"])(
   /*#__PURE__*/
   _babel_runtime_corejs2_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee(_ref3) {
-    var req, quotes;
+    var req, getHost, quotes;
     return _babel_runtime_corejs2_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
       while (1) {
         switch (_context.prev = _context.next) {
           case 0:
             req = _ref3.req;
+
+            getHost = function getHost(path) {
+              if (!req) return path;
+              var host = req.headers.host;
+
+              if (host.startsWith('localhost')) {
+                return "http://".concat(host).concat(path);
+              }
+
+              return "https://".concat(host).concat(path);
+            };
+
             _context.t0 = _babel_runtime_corejs2_helpers_esm_objectSpread__WEBPACK_IMPORTED_MODULE_1__["default"];
             _context.t1 = {};
-            _context.next = 5;
+            _context.next = 6;
             return Object(_lib_quotes_api__WEBPACK_IMPORTED_MODULE_9__["getQuote"])('https://api.kanye.rest');
 
-          case 5:
+          case 6:
             _context.t2 = _context.sent;
             _context.t3 = {
               id: 'fetch'
@@ -13195,10 +13207,10 @@ function () {
             _context.t4 = (0, _context.t0)(_context.t1, _context.t2, _context.t3);
             _context.t5 = _babel_runtime_corejs2_helpers_esm_objectSpread__WEBPACK_IMPORTED_MODULE_1__["default"];
             _context.t6 = {};
-            _context.next = 12;
-            return Object(_lib_quotes_api__WEBPACK_IMPORTED_MODULE_9__["getQuote"])('http://localhost:3000/api/quote');
+            _context.next = 13;
+            return Object(_lib_quotes_api__WEBPACK_IMPORTED_MODULE_9__["getQuote"])(getHost('api/route'));
 
-          case 12:
+          case 13:
             _context.t7 = _context.sent;
             _context.t8 = {
               id: 'api-routes'
@@ -13209,7 +13221,7 @@ function () {
               quotes: quotes
             });
 
-          case 17:
+          case 18:
           case "end":
             return _context.stop();
         }
