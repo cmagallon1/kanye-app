@@ -13208,7 +13208,7 @@ function () {
             _context.t5 = _babel_runtime_corejs2_helpers_esm_objectSpread__WEBPACK_IMPORTED_MODULE_1__["default"];
             _context.t6 = {};
             _context.next = 13;
-            return Object(_lib_quotes_api__WEBPACK_IMPORTED_MODULE_9__["getQuote"])(getHost('api/quote'));
+            return Object(_lib_quotes_api__WEBPACK_IMPORTED_MODULE_9__["getQuote"])(getHost('/api/quote'));
 
           case 13:
             _context.t7 = _context.sent;
