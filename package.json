@@ -1,0 +1,28 @@
+{
+  "name": "kanye-app",
+  "version": "1.0.0",
+  "description": "Application using Next.js and Kanye.rest",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "next"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cmagallon1/kanye-app.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/cmagallon1/kanye-app/issues"
+  },
+  "homepage": "https://github.com/cmagallon1/kanye-app#readme",
+  "dependencies": {
+    "isomorphic-fetch": "^2.2.1",
+    "next": "^9.0.5",
+    "now": "^16.2.0",
+    "react": "^16.9.0",
+    "react-dom": "^16.9.0"
+  }
+}
