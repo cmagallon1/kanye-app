@@ -6,7 +6,8 @@ import Quote from '../components/Quote';
 import { getQuote } from '../lib/quotes-api';
 
 const HELP_TEXT = {
-    fetch: "With an external fetch"
+    fetch: "With an external fetch",
+    'api-routes': "With API routes"
 };
 
 const Index = ({ quotes }) => (
@@ -24,7 +25,8 @@ const Index = ({ quotes }) => (
 
 Index.getInitialProps = async ({ req }) => {
     const quotes = [
-        { ...await getQuote(), id: 'fetch' }
+        { ...await getQuote('https://api.kanye.rest'), id: 'fetch' },
+        { ...await getQuote('http://localhost:3000/api/quote'), id: 'api-routes' }
     ];
 
     return { quotes };
