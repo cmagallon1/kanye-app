@@ -13185,7 +13185,13 @@ function () {
 
             getHost = function getHost(path) {
               if (!req) return path;
-              return req.headers.host + path;
+              var host = req.headers.host;
+
+              if (host.startsWith('localhost')) {
+                return "http://".concat(host).concat(path);
+              }
+
+              return "https://".concat(host).concat(path);
             };
 
             _context.t0 = _babel_runtime_corejs2_helpers_esm_objectSpread__WEBPACK_IMPORTED_MODULE_1__["default"];

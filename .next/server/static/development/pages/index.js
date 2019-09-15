@@ -1412,7 +1412,15 @@ Index.getInitialProps = async ({
 }) => {
   const getHost = path => {
     if (!req) return path;
-    return req.headers.host + path;
+    const {
+      host
+    } = req.headers;
+
+    if (host.startsWith('localhost')) {
+      return `http://${host}${path}`;
+    }
+
+    return `https://${host}${path}`;
   };
 
   const quotes = [Object(_babel_runtime_corejs2_helpers_esm_objectSpread__WEBPACK_IMPORTED_MODULE_0__["default"])({}, (await Object(_lib_quotes_api__WEBPACK_IMPORTED_MODULE_7__["getQuote"])('https://api.kanye.rest')), {
