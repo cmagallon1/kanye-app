@@ -36,7 +36,7 @@ Index.getInitialProps = async ({ req }) => {
     };
     const quotes = [
         { ...await getQuote('https://api.kanye.rest'), id: 'fetch' },
-        { ...await getQuote(getHost('api/route')), id: 'api-routes' }
+        { ...await getQuote(getHost('/api/quote')), id: 'api-routes' }
     ];
 
     return { quotes };

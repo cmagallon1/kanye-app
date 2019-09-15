@@ -1425,7 +1425,7 @@ Index.getInitialProps = async ({
 
   const quotes = [Object(_babel_runtime_corejs2_helpers_esm_objectSpread__WEBPACK_IMPORTED_MODULE_0__["default"])({}, (await Object(_lib_quotes_api__WEBPACK_IMPORTED_MODULE_7__["getQuote"])('https://api.kanye.rest')), {
     id: 'fetch'
-  }), Object(_babel_runtime_corejs2_helpers_esm_objectSpread__WEBPACK_IMPORTED_MODULE_0__["default"])({}, (await Object(_lib_quotes_api__WEBPACK_IMPORTED_MODULE_7__["getQuote"])(getHost('api/route'))), {
+  }), Object(_babel_runtime_corejs2_helpers_esm_objectSpread__WEBPACK_IMPORTED_MODULE_0__["default"])({}, (await Object(_lib_quotes_api__WEBPACK_IMPORTED_MODULE_7__["getQuote"])(getHost('/api/quote'))), {
     id: 'api-routes'
   })];
   return {
