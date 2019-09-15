@@ -9,6 +9,7 @@
   },
   "repository": {
     "type": "git",
+    "build": "next build",
     "url": "git+https://github.com/cmagallon1/kanye-app.git"
   },
   "keywords": [],
