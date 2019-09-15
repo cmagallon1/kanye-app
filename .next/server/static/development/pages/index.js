@@ -88,7 +88,7 @@ module.exports =
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 3);
+/******/ 	return __webpack_require__(__webpack_require__.s = 4);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -463,8 +463,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var isomorphic_fetch__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! isomorphic-fetch */ "isomorphic-fetch");
 /* harmony import */ var isomorphic_fetch__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(isomorphic_fetch__WEBPACK_IMPORTED_MODULE_0__);
 
-const getQuote = async req => {
-  const res = await isomorphic_fetch__WEBPACK_IMPORTED_MODULE_0___default()('https://api.kanye.rest');
+const getQuote = async url => {
+  const res = await isomorphic_fetch__WEBPACK_IMPORTED_MODULE_0___default()(url);
   const data = await res.json();
   return {
     quote: data.quote
@@ -1363,7 +1363,8 @@ var __jsx = react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement;
 
 
 const HELP_TEXT = {
-  fetch: "With an external fetch"
+  fetch: "With an external fetch",
+  'api-routes': "With API routes"
 };
 
 const Index = ({
@@ -1371,19 +1372,19 @@ const Index = ({
 }) => __jsx(_components_Layout__WEBPACK_IMPORTED_MODULE_2__["default"], {
   __source: {
     fileName: _jsxFileName,
-    lineNumber: 13
+    lineNumber: 14
   },
   __self: undefined
 }, __jsx(_components_Content__WEBPACK_IMPORTED_MODULE_3__["default"], {
   __source: {
     fileName: _jsxFileName,
-    lineNumber: 14
+    lineNumber: 15
   },
   __self: undefined
 }, __jsx(_components_Header__WEBPACK_IMPORTED_MODULE_4__["default"], {
   __source: {
     fileName: _jsxFileName,
-    lineNumber: 15
+    lineNumber: 16
   },
   __self: undefined
 }, "Kanye quotes"), quotes.map(({
@@ -1393,7 +1394,7 @@ const Index = ({
   key: id,
   __source: {
     fileName: _jsxFileName,
-    lineNumber: 17
+    lineNumber: 18
   },
   __self: undefined
 }, __jsx(_components_Quote__WEBPACK_IMPORTED_MODULE_6__["default"], {
@@ -1401,7 +1402,7 @@ const Index = ({
   helpText: HELP_TEXT[id],
   __source: {
     fileName: _jsxFileName,
-    lineNumber: 18
+    lineNumber: 19
   },
   __self: undefined
 })))));
@@ -1409,8 +1410,10 @@ const Index = ({
 Index.getInitialProps = async ({
   req
 }) => {
-  const quotes = [Object(_babel_runtime_corejs2_helpers_esm_objectSpread__WEBPACK_IMPORTED_MODULE_0__["default"])({}, (await Object(_lib_quotes_api__WEBPACK_IMPORTED_MODULE_7__["getQuote"])()), {
+  const quotes = [Object(_babel_runtime_corejs2_helpers_esm_objectSpread__WEBPACK_IMPORTED_MODULE_0__["default"])({}, (await Object(_lib_quotes_api__WEBPACK_IMPORTED_MODULE_7__["getQuote"])('https://api.kanye.rest')), {
     id: 'fetch'
+  }), Object(_babel_runtime_corejs2_helpers_esm_objectSpread__WEBPACK_IMPORTED_MODULE_0__["default"])({}, (await Object(_lib_quotes_api__WEBPACK_IMPORTED_MODULE_7__["getQuote"])('http://localhost:3000/api/quote')), {
+    id: 'api-routes'
   })];
   return {
     quotes
@@ -1421,7 +1424,7 @@ Index.getInitialProps = async ({
 
 /***/ }),
 
-/***/ 3:
+/***/ 4:
 /*!******************************!*\
   !*** multi ./pages/index.js ***!
   \******************************/
